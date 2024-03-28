@@ -13,11 +13,6 @@
         android:theme="@style/Theme.Vyza_segundo"
         tools:targetApi="31">
         <activity
-            android:name=".ui.screens.auth.RegisterScreen"
-            android:exported="false"
-            android:label="@string/title_activity_register_screen"
-            android:theme="@style/Theme.Vyza_segundo" />
-        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
