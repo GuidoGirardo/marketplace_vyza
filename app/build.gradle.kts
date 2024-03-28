@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -72,4 +73,10 @@ dependencies {
 
     // para el navhost
     implementation("androidx.navigation:navigation-compose:2.4.0")
+
+    // firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    // firestore
+    implementation("com.google.firebase:firebase-firestore")
+
 }

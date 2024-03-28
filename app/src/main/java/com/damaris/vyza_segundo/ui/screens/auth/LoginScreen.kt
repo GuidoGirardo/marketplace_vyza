@@ -16,6 +16,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.damaris.vyza_segundo.R
+import com.damaris.vyza_segundo.data.loginUserFirebase
 import com.damaris.vyza_segundo.ui.screens.auth.ui.theme.backgroundApp
 import com.damaris.vyza_segundo.ui.screens.auth.ui.theme.textColor
 import com.damaris.vyza_segundo.ui.screens.auth.ui.theme.wowColor
@@ -33,6 +38,10 @@ import com.damaris.vyza_segundo.ui.screens.auth.ui.theme.wowColor
 fun LoginScreen(
     registerClick: () -> Unit
 ){
+
+    var user by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -56,8 +65,8 @@ fun LoginScreen(
         Text(text = "User", fontSize = 22.sp, color = textColor, fontWeight = FontWeight.Light)
         Spacer(modifier = Modifier.height(8.dp))
         OutlinedTextField(
-            value = "",
-            onValueChange = { },
+            value = user,
+            onValueChange = { user = it },
             modifier = Modifier.fillMaxWidth(),
             placeholder = {
                 Text("User")
@@ -67,8 +76,8 @@ fun LoginScreen(
         Text(text = "Password", fontSize = 22.sp, color = textColor, fontWeight = FontWeight.Light)
         Spacer(modifier = Modifier.height(8.dp))
         OutlinedTextField(
-            value = "",
-            onValueChange = { },
+            value = password,
+            onValueChange = { password = it },
             modifier = Modifier.fillMaxWidth(),
             placeholder = {
                 Text("Password")
@@ -76,7 +85,7 @@ fun LoginScreen(
         )
         Spacer(modifier = Modifier.height(32.dp))
         Button(
-            onClick = { /* todo() */ },
+            onClick = { loginUserFirebase(user, password) },
             modifier = Modifier.width(180.dp)
                 .height(60.dp)
         ) {

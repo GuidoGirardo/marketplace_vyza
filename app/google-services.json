@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "203572259775",
+    "project_id": "segundo-vyza",
+    "storage_bucket": "segundo-vyza.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203572259775:android:3d3b72d92c9158db538f0a",
+        "android_client_info": {
+          "package_name": "com.damaris.vyza_segundo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4dAYTUX934xqVmOHN32wlIerNd6Bl0t4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
