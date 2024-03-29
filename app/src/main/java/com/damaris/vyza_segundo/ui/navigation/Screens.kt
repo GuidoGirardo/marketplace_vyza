@@ -7,5 +7,6 @@ enum class Screens(
     @StringRes title: Int
 ) {
     Login(title = R.string.ls_login),
-    Register(title = R.string.rs_register)
+    Register(title = R.string.rs_register),
+    Home(title = R.string.home_activity)
 }

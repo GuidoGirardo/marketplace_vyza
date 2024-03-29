@@ -25,6 +25,7 @@ fun registerUserFirebase(user: String, email: String, password: String) {
                                 .add(newUser)
                                 .addOnSuccessListener { documentReference ->
                                     Log.i("xd", "DocumentSnapshot added with ID: ${documentReference.id}")
+
                                 }
                                 .addOnFailureListener { e ->
                                     Log.i("xd", "Error adding document", e)

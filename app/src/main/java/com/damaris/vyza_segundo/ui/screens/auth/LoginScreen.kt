@@ -1,5 +1,6 @@
 package com.damaris.vyza_segundo.ui.screens.auth
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -28,20 +29,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.damaris.vyza_segundo.R
 import com.damaris.vyza_segundo.data.loginUserFirebase
 import com.damaris.vyza_segundo.ui.screens.auth.ui.theme.backgroundApp
 import com.damaris.vyza_segundo.ui.screens.auth.ui.theme.textColor
 import com.damaris.vyza_segundo.ui.screens.auth.ui.theme.wowColor
+import com.damaris.vyza_segundo.ui.screens.viewmodel.AuthViewModel
 
 @Composable
 fun LoginScreen(
-    registerClick: () -> Unit
-){
-
+    registerClick: () -> Unit,
+    homeClick: () -> Unit
+) {
     var user by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
+    val authViewModel = viewModel<AuthViewModel>()
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -85,8 +88,14 @@ fun LoginScreen(
         )
         Spacer(modifier = Modifier.height(32.dp))
         Button(
-            onClick = { loginUserFirebase(user, password) },
-            modifier = Modifier.width(180.dp)
+            onClick = {
+                val authViewModel = AuthViewModel.getInstance()
+                authViewModel.currentUser = user.toString();
+                loginUserFirebase(user, password, homeClick);
+                Log.i("xd", authViewModel.currentUser.toString())
+            },
+            modifier = Modifier
+                .width(180.dp)
                 .height(60.dp)
         ) {
             Text(text = "login", fontSize = 22.sp, fontWeight = FontWeight.Normal)
@@ -103,3 +112,4 @@ fun LoginScreen(
 
     }
 }
+
