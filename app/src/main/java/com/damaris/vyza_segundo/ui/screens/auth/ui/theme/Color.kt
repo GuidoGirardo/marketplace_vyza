@@ -13,3 +13,4 @@ val Pink40 = Color(0xFF7D5260) */
 val backgroundApp = Color(0xFF2F2F2F)
 val textColor = Color(0xFFE0E0E0)
 val wowColor = Color(0xFF07C679)
+val wowColorOscuro = Color(0xFF069D60)
